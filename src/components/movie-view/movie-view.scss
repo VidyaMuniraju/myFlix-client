@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root {
+  --mar-size: 10px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.movie-view {
+  margin: 15px;
+  align-content: space-around;
+  padding: 10px;
+}
+
+.movie-poster {
+  margin-bottom: 20px;
+}
+
+.movie-title {
+  margin-top: var(--mar-size);
+  margin-bottom: var(--mar-size);
+}
+
+.movie-description {
+  margin-top: var(--mar-size);
+  margin-bottom: var(--mar-size);
+}
+
+.movie-genre {
+  margin-top: var(--mar-size);
+  margin-bottom: var(--mar-size);
+}
+
+.movie-director {
+  margin-top: var(--mar-size);
+  margin-bottom: var(--mar-size);
+}
+
+.back-button {
+  margin-top: var(--mar-size);
+  margin-bottom: var(--mar-size);
+}
