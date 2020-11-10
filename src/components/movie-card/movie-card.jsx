@@ -6,20 +6,22 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import CardDeck from 'react-bootstrap/CardDeck';
 import './movie-card.scss';
 
-
+import { Link } from 'react-router-dom';
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onClick } = this.props;
+    const { movie } = this.props;
 
     return(
-      <CardDeck>
+      <CardDeck className="card-deck">
         <Card style={{ width: '18rem' }} className="movie-card mb-3">
           <Card.Img className="movie-card-poster" variant="top" src={movie.ImageURL} />
           <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Text>{movie.Description}</Card.Text>
-            <Button type="Link" onClick={() => onClick(movie)} variant="link">Open</Button>
+            <Link to={`/movies/${movie._id}`}>
+              <Button type="Link" variant="link">Open</Button>
+            </Link>
           </Card.Body>
         </Card>
       </CardDeck>
@@ -44,7 +46,6 @@ MovieCard.propTypes = {
       Birth: PropTypes.string.isRequired,
       Death: PropTypes.string
     })
-  }).isRequired,
-  onClick: PropTypes.func.isRequired
+  })
 };
 
