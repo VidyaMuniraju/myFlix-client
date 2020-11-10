@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -34,7 +34,7 @@ export class MainView extends React.Component {
         user: localStorage.getItem('user')
       });
       this.getMovies(accessToken);
-      this.getUser(accessToken);
+      // this.getUser(accessToken);
     }
   }
 
@@ -44,11 +44,6 @@ export class MainView extends React.Component {
     });
   }
 
-  // navigateBack() {
-  //   this.setState({
-  //     selectedMovie: null
-  //   });
-  // }
 
   onLoggedIn(authData) {
     console.log(authData)
@@ -77,28 +72,17 @@ export class MainView extends React.Component {
     });
   }
 
-  getUser(accessToken) {
-    const url = `https://flix-world.herokuapp.com/users/${localStorage.getItem('user')}`;
-    axios.get(url, {
-      headers: { Authorization: `Bearer ${accessToken}`}
-    })
-    .then((response) => {
-      console.log(response.data);
-      this.setState({
-        user: response.data,
-      });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  onLogOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.open('/', '_self');
   }
+
 
   render() {
     // if state isn't initialized, this will throw an error on runtime
     // before data is initially loaded
     let { movies, user } = this.state;
-
-    // let { movies, user, favoritemovies } = this.props;
 
     /*if there is no user, loginview is rendered. If there is a user logged
     in, the user details are passed as a prop to the loginview */
@@ -112,6 +96,7 @@ export class MainView extends React.Component {
     return (
       <Router>
         <div className="main-view">
+
           <Container className="cards">
             <Row>
               <Route exact path="/" render={() =>{
@@ -139,19 +124,9 @@ export class MainView extends React.Component {
           }} />
 
 
-          <Route exact path="/users/:Username" render={( user, movies ) =>  {return <ProfileView user={ user } movies={movies} />; } }/>
-              
-              {/*
-              {
-              selectedMovie
-              ? <MovieView movie={selectedMovie} onClick= {() => this.navigateBack()}/>
-              : movies.map(movie => (
-              <Col md={3} key={movie._id} className="indv-card">
-                <MovieCard key={movie._id} movie={movie}  onClick={movie => this.onMovieClick(movie)}/>
-              </Col>
-              ))} */}
-            
-          
+          <Route exact path="/users/:Username" render={( ) =>  {
+            return <ProfileView movies={movies} />;  } }/>
+
         </div>
       </Router>
     );

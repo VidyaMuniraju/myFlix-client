@@ -18,7 +18,7 @@ export class GenreView extends React.Component {
 
     return(
 
-      <div>
+      <div className="genre-info">
         <div className="genre-name">
           <span className="label">Name: </span>
           <span className="value">{genre.Name}</span>
@@ -28,20 +28,14 @@ export class GenreView extends React.Component {
           <span className="label">Description: </span>
           <span className="value">{genre.Description}</span>
         </div>
-
-        <Link to={`../`}>
-          <Button>
-            Back
-          </Button>
-        </Link>
-
+    
+        <Button className="back-btn" onClick={() => window.history.back()}>
+          Back
+        </Button>
+      
       </div>
-
-
     )
-
   }
-
 }
 
 GenreView.propTypes = {

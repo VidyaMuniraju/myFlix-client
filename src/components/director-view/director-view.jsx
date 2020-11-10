@@ -18,7 +18,7 @@ export class DirectorView extends React.Component {
 
     return(
 
-      <div>
+      <div className="director-info">
         <div className="director-name">
           <span className="label">Name: </span>
           <span className="value">{director.Name}</span>
@@ -29,18 +29,13 @@ export class DirectorView extends React.Component {
           <span className="value">{director.Bio}</span>
         </div>
 
-        <Link to={`../`}>
-          <Button variant="primary" type="link">
-            Back
-          </Button>
-        </Link>
-
+        <Button className="back-btn" onClick={() => window.history.back()}>
+          Back
+        </Button>
+    
       </div>
-
     )
-
   }
-
 }
 
 DirectorView.propTypes = {
