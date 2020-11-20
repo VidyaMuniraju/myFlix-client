@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import './movie-view.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export class MovieView extends React.Component {
@@ -12,14 +13,28 @@ export class MovieView extends React.Component {
     this.state = {};
   }
 
+  addFav(movie) {
+    const token = localStorage.getItem('token');
+    let user = localStorage.getItem('user');
+
+    axios.post(`https://flix-world.herokuapp.com/users/${user}/favoritemovies/${movie._id}`, { Username: localStorage.getItem('user') }, { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => {
+        console.log(res);
+        alert('Added to your Favorite Movies');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movie } = this.props;
 
-    if(!movie) return null;
+    if (!movie) return null;
 
-    return(
+    return (
       <div className="movie-view">
-        <img className="movie-poster" src={movie.ImageURL}/>
+        <img className="movie-poster" src={movie.ImageURL} />
         <div className="movie-title">
           <span className="label">Title: </span>
           <span className="value">{movie.Title}</span>
@@ -46,11 +61,15 @@ export class MovieView extends React.Component {
           </Link>
         </div>
 
+        <Button variant="outline-dark" className="add-fav" type="submit" onClick={() => this.addFav(movie)}>
+          Add to Favorite Movies
+        </Button>
+
         <Link to={`/`}>
           <Button variant="primary" type="link">Back</Button>
         </Link>
 
-        
+
       </div>
     );
   }
