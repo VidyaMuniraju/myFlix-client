@@ -229,20 +229,4 @@ ProfileView.propTypes = {
     BirthDay: PropTypes.string,
     FavoriteMovies: PropTypes.array
   })
-  // movies: PropTypes.shape({
-  //   Title: PropTypes.string,
-  //   Description: PropTypes.string.isRequired,
-  //   ImageURL: PropTypes.string.isRequired,
-  //   Featured: PropTypes.boolean,
-  //   Genre: PropTypes.shape({
-  //     Name: PropTypes.string.isRequired,
-  //     Description: PropTypes.string.isRequired
-  //   }),
-  //   Director: PropTypes.shape({
-  //     Name: PropTypes.string.isRequired,
-  //     Bio: PropTypes.string.isRequired,
-  //     Birth: PropTypes.string.isRequired,
-  //     Death: PropTypes.string
-  //   })
-  // })
 }

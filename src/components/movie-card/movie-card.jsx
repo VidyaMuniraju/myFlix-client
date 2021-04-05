@@ -12,7 +12,7 @@ export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
 
-    return(
+    return (
       <CardDeck className="card-deck">
         <Card style={{ width: '18rem' }} className="movie-card mb-3">
           <Card.Img className="movie-card-poster" variant="top" src={movie.ImageURL} />
@@ -25,7 +25,6 @@ export class MovieCard extends React.Component {
           </Card.Body>
         </Card>
       </CardDeck>
-      // <div onClick={() => onClick(movie)} className="movie-card">{movie.Title}</div>
     );
   }
 }
