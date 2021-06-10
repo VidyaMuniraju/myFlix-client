@@ -5,6 +5,10 @@ import Button from 'react-bootstrap/Button';
 import './login-view.scss';
 import axios from 'axios';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
+
 export function LoginView(props) {
   const [Username, setUsername] = useState('');
   const [Password, setPassword] = useState('');
@@ -28,21 +32,33 @@ export function LoginView(props) {
   };
 
   return (
-    <Form className="login-view">
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" aria-label="Username" value={Username} onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
+    <div className="login-view">
+      <Container className="container-fluid">
+        <Form className="login-view">
+          <Form.Group controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control type="text" aria-label="Username" value={Username} onChange={e => setUsername(e.target.value)} />
+          </Form.Group>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="text" aria-label="Password" value={Password} onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="text" aria-label="Password" value={Password} onChange={e => setPassword(e.target.value)} />
+          </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Login
+          </Button>
+        </Form>
+      </Container>
+      <Container className="container-fluid">
+        <Row className="d-flex align-items-center justify-content-center">
+          <span>Don't have an account?</span>
+          <Link to={`/register`}>
+            <Button variant="primary" className="signUp-link" type="submit">Sign up</Button>
+          </Link>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

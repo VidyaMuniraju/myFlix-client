@@ -107,6 +107,8 @@ export class ProfileView extends React.Component {
 
     // const { Username, Password, EmailId, BirthDay } = user;
 
+    if (!this.state.Username || !movies || movies.length === 0) return <div className="profile-view">Loading...</div>;
+
     if (this.state.FavoriteMovies === undefined) {
       return (
         <div className="profile-view">Loading..</div>
@@ -129,7 +131,7 @@ export class ProfileView extends React.Component {
         <Form className="profile-view">
           <Form.Group controlId="formUsername">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placeholder="Username" aria-label="Username" onChange={(e) => {
+            <Form.Control type="text" aria-label="Username" onChange={(e) => {
               this.setState(
                 { Username: e.target.value })
               if (!e.target.value) {
@@ -141,7 +143,7 @@ export class ProfileView extends React.Component {
 
           <Form.Group controlId="formPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" aria-label="Password" onChange={(e) => {
+            <Form.Control type="password" aria-label="Password" onChange={(e) => {
               this.setState({
                 Password: e.target.value
               })
@@ -156,7 +158,7 @@ export class ProfileView extends React.Component {
 
           <Form.Group controlId="formEmail">
             <Form.Label>Email ID</Form.Label>
-            <Form.Check type="text" placeholder="EmailID" aria-label="Email ID" onChange={(e) => {
+            <Form.Check type="text" aria-label="Email ID" onChange={(e) => {
               this.setState({
                 EmailId: e.target.value
               })
@@ -168,7 +170,7 @@ export class ProfileView extends React.Component {
 
           <Form.Group controlId="formBirthDay">
             <Form.Label>Birth Date</Form.Label>
-            <Form.Check type="text" placeholder="Date of Birth" aria-label="Date of Birth" onChange={(e) => {
+            <Form.Check type="text" placeholder="YYYY/MM/DD" aria-label="Date of Birth" onChange={(e) => {
               this.setState({
                 BirthDay: e.target.value
               })
@@ -206,7 +208,7 @@ export class ProfileView extends React.Component {
         <h3 className="fav-text">Your Favorite Movies</h3>
         <Row>
           {favMovie.map(m => (
-            <Col md={4} key={m._id} className="fav-card">
+            <Col xs={12} md={4} key={m._id} className="fav-card">
               <MovieCard key={m._id} movie={m} />
               <Button className="remove-fav" variant="outline-dark" type="submit" onClick={() => this.removeFav(m)}>
                 Delete movie
