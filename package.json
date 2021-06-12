@@ -1,23 +1,4 @@
 {
-  "dependencies": {
-    "axios": "^0.21.0",
-    "parcel-bundler": "^1.10.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "sass": "^1.27.0"
-  },
   "name": "myflix-client",
   "description": "This project is the client-side application for the [Movie_FLIX](https://github.com/VidyaMuniraju/Movie_FLIX) application. The project has been built with React and Parcel. It also makes use of Redux for managing the application's state.",
   "version": "1.0.0",
@@ -34,5 +15,24 @@
   "bugs": {
     "url": "https://github.com/VidyaMuniraju/myFlix-client/issues"
   },
-  "homepage": "https://github.com/VidyaMuniraju/myFlix-client#readme"
+  "homepage": "https://github.com/VidyaMuniraju/myFlix-client#readme",
+    "dependencies": {
+    "axios": "^0.21.0",
+    "parcel-bundler": "^1.10.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8"
+  },
+    "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "sass": "^1.27.0"
+  }
 }
