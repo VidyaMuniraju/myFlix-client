@@ -45,7 +45,7 @@ export function RegistrationView(props) {
         <Form.Group controlId="formPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" aria-label="Password" value={Password} onChange={e => setPassword(e.target.value)} />
-          <Form.Text classname="text-muted">
+          <Form.Text className="text-muted">
             Password should contain alphanumeric characters and must be of minimum 8 characters.
         </Form.Text>
         </Form.Group>
