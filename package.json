@@ -17,5 +17,22 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "sass": "^1.27.0"
-  }
+  },
+  "name": "myflix-client",
+  "description": "This project is the client-side application for the [Movie_FLIX](https://github.com/VidyaMuniraju/Movie_FLIX) application. The project has been built with React and Parcel. It also makes use of Redux for managing the application's state.",
+  "version": "1.0.0",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VidyaMuniraju/myFlix-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VidyaMuniraju/myFlix-client/issues"
+  },
+  "homepage": "https://github.com/VidyaMuniraju/myFlix-client#readme"
 }
